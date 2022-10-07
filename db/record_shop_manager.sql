@@ -5,7 +5,7 @@ CREATE TABLE artists (
   id SERIAL PRIMARY KEY,
   first_name VARCHAR(255),
   last_name VARCHAR(255),
-  countnry VARCHAR(255)
+  country VARCHAR(255)
 );
 
 CREATE TABLE records (
@@ -15,5 +15,6 @@ CREATE TABLE records (
   genre VARCHAR(255),
   year INT,
   buying_cost FLOAT,
-  price FLOAT 
+  price FLOAT,
+  stock_count INT 
 );

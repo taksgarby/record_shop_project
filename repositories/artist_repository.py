@@ -4,7 +4,7 @@ from models.artist import Artist
 from models.record import Record
 
 def save(artist):
-    sql = "INSERT INTO artist (first_name, last_name, country) VALUES (%s, %s, %s) RETURNING *"
+    sql = "INSERT INTO artists (first_name, last_name, country) VALUES (%s, %s, %s) RETURNING *"
     values = [artist.first_name, artist.last_name, artist.country]
     results = run_sql(sql, values)
     id = results[0]['id']
@@ -15,7 +15,7 @@ def save(artist):
 def select_all():
     artists = []
 
-    sql = "SELECT * FROM artist"
+    sql = "SELECT * FROM artists"
     results = run_sql(sql)
 
     for row in results:
@@ -61,6 +61,6 @@ def records(artist):
     results = run_sql(sql, values)
 
     for row in results:
-        record = Record(row['title'], row['artist_id'], row['genre'], row['year'], row['buying_cost'], row['price'], row['id'])
+        record = Record(row['title'], row['artist_id'], row['genre'], row['year'], row['buying_cost'], row['price'], row['stock_count'], row['id'])
         records.append(record)
     return records
