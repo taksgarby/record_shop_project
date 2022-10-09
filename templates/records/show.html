@@ -1,0 +1,20 @@
+{% extends 'base.html'%}
+
+{% block content %}
+<h2>{{ record.title }}</h2>
+
+<h3>{{  record.artist.first_name }} {{ record.artist.last_name }}</h3>
+
+<p>Genre: {{ record.genre }}</p>
+<p>Year: {{ record.year }}</p>
+<p>Price: {{ record.price }}</p>
+<p>Buying cost: {{ record.buying_cost }}</p>
+<p>Available stock: {{ record.stock_count }}</p>
+
+{% if record.stock_count < 3 %}
+<p>!! Low Stock !!</p>
+{% endif %}
+<p><a href="/records/{{ record.id }}/edit">EDIT</a></p>
+</div>
+
+{% endblock %}

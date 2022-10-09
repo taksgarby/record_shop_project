@@ -5,8 +5,21 @@
 {% for record in all_records %}
 <div class="record">
     <div class="title">
-        {{record.title}}
+        Title: {{record.title}}
     </div>
+    <div class="artist">
+        <a href="/records/{{ record.id }}"> Artist: {{record.artist.first_name}} {{ record.artist.last_name }} </a>
+    </div>
+    <div class="genre">
+        Genre: {{ record.genre }}
+    </div>
+    <div class="stock_count">
+        Stocking: {{ record.stock_count }}
+    </div>
+    <div class="show">
+        <a href="/records/{{ record.id }}">Show this record</a>
+    </div>
+    <br>
 </div>
 
 {% endfor %}

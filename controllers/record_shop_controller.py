@@ -15,6 +15,12 @@ def records():
 def add():
     return render_template("add.html")
 
+
+@record_shop_blueprint.route("/records/<id>", methods=['GET'])
+def show_record(id):
+    return render_template('records/show.html', record = record_repository.select(id))
+
+
 @record_shop_blueprint.route("/artists")
 def artists():
     return render_template("artists/index.html")
