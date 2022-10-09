@@ -1,0 +1,44 @@
+{% extends 'base.html'%}
+
+{% block content %}
+    <form action="/records" method="post">
+        <div>
+            <label for="description">Title:</label>
+            <input type="text" id="title" name="title" placeholder="Title" required autofocus>
+        </div>
+
+        <div>
+            <label for="">Artist First Name:</label>
+            <input type="artist_first_name" id="artist_first_name" name="artist_first_name" placeholder="Artist First Name" required>
+        </div>
+
+        <div>
+            <label for="">Artist Last Name:</label>
+            <input type="artist_last_name" id="artist_last_name" name="artist_last_name" placeholder="Artist Last Name" required>
+        </div>
+        
+        <div>
+            <label for="genre">Genre:</label>
+            <select name="genre" id="genre">
+                <option value="pop">Pop & Rock</option>
+                <option value="folk">Folk</option>
+                <option value="jazz">Jazz</option>
+                <option value="classic">Classic</option>
+            </select>
+        </div>
+        <div>
+            <label for="user">User:</label>
+            <select name="user_id" id="user">
+                {% for user in all_users  %}
+                <option value="{{ user.id }}">{{ user.first_name }}</option>
+                {% endfor %}
+
+            </select>
+        </div>
+
+        <div>
+            <label for=""></label>
+        </div>
+        <button type="submit">Add Task</button>
+    </form>
+{% endblock content %}

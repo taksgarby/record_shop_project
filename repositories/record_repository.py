@@ -20,7 +20,7 @@ def select_all():
 
     for row in results:
         artist = artist_repository.select(row['artist_id'])
-        record = Record(row['title'], artist, row['genre'], row['year'], row['buying_cost'], row['price'], row['stock_count'], row[id])
+        record = Record(row['title'], artist, row['genre'], row['year'], row['buying_cost'], row['price'], row['stock_count'], row['id'])
         records.append(record)
     return records
 
