@@ -1,0 +1,20 @@
+{% extends 'base.html'%}
+
+{% block content %}
+
+<form action="/artists" method="post">
+    <div>
+        <label for="artist_first_name">First Name:</label>
+        <input type="text" name="artist_first_name" id="artist_first_name">
+    </div>
+    <div>
+        <label for="artist_last_name">Last Name:</label>
+        <input type="text" name="artist_last_name" id="artsit_last_name">
+    </div>
+    <div>
+        <label for="country">Country:</label>
+        <input type="text" name="country" id="country">
+    </div>
+    <button type="submit">Add This Artist</button>
+</form>
+{% endblock %}

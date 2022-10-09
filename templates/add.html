@@ -3,23 +3,27 @@
 {% block content %}
     <form action="/records" method="post">
         <div>
+            <label for="artist">Artist:</label>
+            <select name="artist_id" id="artist">
+                {% for artist in all_artists  %}
+                <option value="{{ artist.id }}">{{ artist.first_name }} {{ artist.last_name }}</option>
+                {% endfor %}
+
+            </select>
+            <p>Couldn't find the artist?<a href="/artists/add">Add Artist</a></p>
+        </div> 
+        <div>
             <label for="description">Title:</label>
             <input type="text" id="title" name="title" placeholder="Title" required autofocus>
         </div>
-
-        <div>
-            <label for="">Artist First Name:</label>
-            <input type="artist_first_name" id="artist_first_name" name="artist_first_name" placeholder="Artist First Name" required>
-        </div>
-
-        <div>
-            <label for="">Artist Last Name:</label>
-            <input type="artist_last_name" id="artist_last_name" name="artist_last_name" placeholder="Artist Last Name" required>
-        </div>
-        
+  
         <div>
             <label for="genre">Genre:</label>
             <select name="genre" id="genre">
+                <option value="">SELECT</option>
+                <option value="folk">Folk</option>
+                <option value="jazz">Jazz</option>
+                <option value="classic">Classic</option>
                 <option value="pop">Pop & Rock</option>
                 <option value="folk">Folk</option>
                 <option value="jazz">Jazz</option>
@@ -27,18 +31,22 @@
             </select>
         </div>
         <div>
-            <label for="user">User:</label>
-            <select name="user_id" id="user">
-                {% for user in all_users  %}
-                <option value="{{ user.id }}">{{ user.first_name }}</option>
-                {% endfor %}
-
-            </select>
+            <label for="year">Release Year: </label>
+            <input type="number" name="year" id="year" required>
         </div>
-
+  
         <div>
-            <label for=""></label>
+            <label for="stock_count">Stock Count: </label>
+            <input type="number" name="stock_count" id="stock_count" required>
         </div>
-        <button type="submit">Add Task</button>
+        <div>
+            <label for="buying_cost">Buying cost of each record: </label>
+            <input type="number" min="0" value="0" step=".01" name="buying_cost" id="buying_cost" placeholder="£" required>
+        </div>
+        <div>
+            <label for="price">Set price of each record: </label>
+            <input type="number" min="0" value="0" step=".01" name="price" id="price" placeholder="£" required>
+        </div>
+        <button type="submit">Add This Record</button>
     </form>
 {% endblock content %}

@@ -1,7 +1,48 @@
 {% extends 'base.html'%}
 
 {% block content %}
-
-edit page
-
-{% endblock %}
+<form action="/records/{{ record.id }}" method="post">
+    <form action="/records" method="post">
+        <div>
+            <label for="description">Title:</label>
+            <input type="text" id="title" name="title" value="{{ record.title }}">
+        </div>
+        <div>
+            <label for="artist">Artist:</label>
+                <select name="artist_id" id="artist">
+                    {% for artist in all_artists  %}
+                    <option value="{{ artist.id }}" {% if artist.id== record.artist.id %} 
+                    selected {% endif %}>{{ artist.first_name }} {{ artist.last_name }}</option>
+                    {% endfor %}
+    
+                </select>
+            </div>   
+            <div>
+                <label for="genre">Genre:</label>
+                <select name="genre" id="genre">
+                    <option value="">SELECT</option>
+                    <option value="folk">Folk</option>
+                    <option value="jazz">Jazz</option>
+                    <option value="classic">Classic</option>
+                    <option value="pop">Pop & Rock</option>
+                    <option value="folk">Folk</option>
+                    <option value="jazz">Jazz</option>
+                    <option value="classic">Classic</option>
+                </select>
+            </div>
+            <div>
+                <label for="year">Release Year: </label>
+                <input type="number" name="year" id="year" value="{{ record.year }}>
+            </div>
+      
+            <div>
+                <label for="stock_count">Stock Count: </label>
+                <input type="number" name="stock_count" id="stock_count" value="{{ record.stock_count }}">
+            </div>
+            <div>
+                <label for="buying_cost">Buying cost of each record: </label>
+                <input type="number" min="0" value="{{ record.buying_cost }}" step=".01" name="buying_cost" id="buying_cost">
+            </div>
+            
+            <button type="submit">Update This Record</button>
+        </form>

@@ -1,7 +1,12 @@
 {% extends 'base.html'%}
 
 {% block content %}
+<p>Click the name to see the artist details</p>
+{% for artist in all_artists %}
+    <div class = "name">
+        <a href="/artists/{{ artist.id }}">{{ artist.first_name }} {{ artist.last_name }}</a>
+    </div>
 
-artist page
+{% endfor %}
 
 {% endblock %}

@@ -21,7 +21,7 @@ def select_all():
     for row in results:
         artist = Artist(row['first_name'], row['last_name'], row['country'], row['id'] )
         artists.append(artist)
-    return artist
+    return artists
 
 
 def select(id):

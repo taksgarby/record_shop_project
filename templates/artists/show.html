@@ -2,6 +2,13 @@
 
 {% block content %}
 
-artist show
+<p>{{ artist.first_name }} {{ artist.last_name }}</p>
+<p>Country: {{ artist.country }}</p>
+
+<p><a href="/artists/{{ artist.id }}/edit">EDIT</a></p>
+
+<!-- <p>Available records:
+
+</p> -->
 
 {% endblock %}
