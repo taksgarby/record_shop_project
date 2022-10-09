@@ -38,6 +38,14 @@ def show_record(id):
     return render_template('records/show.html', record = record_repository.select(id))
 
 
+@record_shop_blueprint.route("/records/<id>/edit")
+def edit_record(id):
+    return render_template('records/edit.html',
+                            record = record_repository.select(id),
+                            all_artists = artist_repository.select_all())
+
+
+
 @record_shop_blueprint.route("/artists")
 def artists():
     artists = artist_repository.select_all()

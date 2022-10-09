@@ -32,7 +32,7 @@
             </div>
             <div>
                 <label for="year">Release Year: </label>
-                <input type="number" name="year" id="year" value="{{ record.year }}>
+                <input type="number" name="year" id="year" value="{{ record.year }}">
             </div>
       
             <div>
@@ -42,7 +42,15 @@
             <div>
                 <label for="buying_cost">Buying cost of each record: </label>
                 <input type="number" min="0" value="{{ record.buying_cost }}" step=".01" name="buying_cost" id="buying_cost">
+            </div>            
+            <div>
+                <label for="price">Price: </label>
+                <input type="number" min="0" value="{{ record.price }}" step=".01" name="price" id="price">
             </div>
             
             <button type="submit">Update This Record</button>
         </form>
+
+
+    
+{% endblock  %}
