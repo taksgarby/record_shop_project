@@ -4,5 +4,14 @@
     <h1>Hello, Seaside Records!</h1>
     <div><a href="/records">Show List</a></div>
     <div><a href="/add">Add Item</a></div>
+<hr>
+<div class="alert"> 
+{% for record in all_records %}
 
+<p>{% if record.stock_count < 3 %} 
+    <a href = "/records/{{ record.id }}">{{ record.title }} </a>is Low Stock !!</p>
+    {% endif %}
+
+    {% endfor %}
+</div>
 {% endblock %}
