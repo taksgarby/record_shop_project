@@ -21,4 +21,5 @@ def add_artist():
 
 @artists_blueprint.route("/artists/<id>", methods=['GET'])
 def show_artist(id):
-    return render_template('artists/show.html', artist = artist_repository.select(id))
+    return render_template('artists/show.html', 
+    artist = artist_repository.select(id), all_records = record_repository.select_all())

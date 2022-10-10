@@ -2,6 +2,7 @@ from flask import Flask, render_template
 
 from controllers.records_controller import records_blueprint
 from controllers.artists_controller import artists_blueprint
+from controllers.category_controller import category_blueprint
 
 from repositories import record_repository
 
@@ -10,7 +11,7 @@ app = Flask(__name__)
 
 app.register_blueprint(records_blueprint)
 app.register_blueprint(artists_blueprint)
-
+app.register_blueprint(category_blueprint)
 
 @app.route('/')
 def home():

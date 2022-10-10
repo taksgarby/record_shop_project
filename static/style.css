@@ -5,6 +5,10 @@ body {
     margin: 0px;
 }
 
-.record .stock-count .alert {
+section {
+    margin: 2rem;
+}
+
+.alert {
     color: red;
 }

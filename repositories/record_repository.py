@@ -8,7 +8,6 @@ def save(record):
     sql = "INSERT INTO records (title, artist_id, genre, year, stock_count, buying_cost, price) VALUES (%s, %s, %s, %s, %s, %s, %s) RETURNING *"
     values = [record.title, record.artist.id, record.genre, record.year, record.stock_count, record.buying_cost, record.price]
     results = run_sql(sql, values)
-    breakpoint()
     id = results[0]['id']
     record.id = id
     return record

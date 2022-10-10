@@ -14,7 +14,7 @@ CREATE TABLE records (
   artist_id INT NOT NULL REFERENCES artists(id),
   genre VARCHAR(255),
   year INT,
-  stock_count INT 
+  stock_count INT, 
   buying_cost FLOAT,
   price FLOAT
 );
